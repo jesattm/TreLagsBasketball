@@ -1,0 +1,17 @@
+﻿@model MVC_GUI.Models.Player
+
+<div>
+    @if (Model != null){
+        <b>Id: </b>
+        @(Model.PlayerId)
+        <br />
+        <b>Name: </b>
+        @(Model.Name)
+        <br />
+        <b>Position: </b>
+        @(Model.PositionString)
+    }
+    else{
+        @("Enter ID to show player")
+    }
+</div>

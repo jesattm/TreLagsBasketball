@@ -1,0 +1,29 @@
+﻿<h1>Add a player to a team</h1>
+
+<form action="AddPlayerToTeam" method="post">
+    <table>
+        <tr>
+            <td>Enter the player's ID </td>
+            <td><input type="text" name="playerId" /></td>
+        </tr>
+        <tr>
+            <td>Enter the team's ID </td>
+            <td><input type="text" name="teamId" /></td>
+        </tr>
+        <tr>
+            <td colspan="2"><input type="submit" value="Add player to team" /></td>
+        </tr>
+    </table>
+</form>
+
+@if (ViewBag.success == true)
+{
+    <div>
+        Played added to team!
+    </div>
+}
+else if (ViewBag.success == false){
+    <div>
+        Error in adding player to team.
+    </div>
+}

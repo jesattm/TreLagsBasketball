@@ -1,0 +1,68 @@
+﻿@model TeamDetail
+
+<!DOCTYPE html>
+<html lang="en">
+<meta charset="UTF-8">
+<title>TeamDetail view</title>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<body>
+    <h1>TeamDetail view</h1>
+    <h2>Find team by id</h2>
+    <p>
+        @using (Html.BeginForm())
+        {
+        <p>
+                @Html.Label("TeamId") <br />
+                @Html.TextBox("TeamId")
+        </p>
+        <p>
+            <input type="submit" value="Find team">
+        </p>
+        }
+    </p>
+    @if (ViewBag.ErrorMessage != null)
+    {
+        <p>
+            Error: @ViewBag.ErrorMessage
+        </p>
+    }
+    else if (@Model != null)
+    {
+        <h2>Result</h2>
+        <p>
+            <div id="Id_Div">
+                <b>Id:</b> @{
+                    if (Model.TeamId != null)
+                    {
+                        @Model.TeamId
+                    }
+                }
+            </div>
+            <div>
+                <b>Name:</b> @{
+                    if (Model.TeamName != null)
+                    {
+                        @Model.TeamName
+                    }
+                }
+            </div>
+            <div>
+                <b>Players on the team:</b> @{
+                    if (Model.Players != null)
+                    {
+                        <ul>
+                            @foreach (Player p in @Model.Players)
+                            {
+                                <li>
+                                    @* Uses ShowPlayer component, view located at Player/Components *@
+                                    @await Component.InvokeAsync("ShowPlayer", @p)
+                                </li>
+                            }
+                        </ul>
+                    }
+                }
+            </div>
+        </p>
+    }
+</body>
+</html>

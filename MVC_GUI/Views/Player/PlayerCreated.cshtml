@@ -1,0 +1,8 @@
+﻿@model Player
+<h1>Player created!</h1>
+@*@Html.DisplayForModel() *@
+
+<div>
+    @*@await Html.PartialAsync("_ShowPlayer")*@
+    @await Component.InvokeAsync("ShowPlayer", @Model)
+</div>

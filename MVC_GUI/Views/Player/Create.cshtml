@@ -1,0 +1,31 @@
+﻿@*Her strongly typed view, kan også være "dynamic" (ingen intellisense + kan bruge hvilket som helst objekt)*@
+@model Player
+
+<h1>Create player</h1>
+
+@using (@Html.BeginForm("PlayerCreatedSimpleTypes", "Player", FormMethod.Post))
+{
+    @*Viser info om hvordan validation gik*@
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+    <div>
+        @Html.LabelFor(p => p.Name)
+        @Html.EditorFor(p => p.Name)
+        @*Validation fra klient siden*@
+        @Html.ValidationMessageFor(p => p.Name, "", new { @class = "text-danger" })
+    </div>
+    <br />
+    <div>
+        @Html.LabelFor(p => p.Position)
+        @Html.DropDownListFor(p => p.Position, 
+        new SelectList(Enum.GetValues(typeof(DTO.Model.Position))), 
+            "Select position")
+        @Html.ValidationMessageFor(p => p.Position, "", new { @class = "text-danger" })
+    </div>
+    <br />
+    <input type="submit" value="Submit player"/>
+}
+
+@section Scripts {
+    @{ await Html.RenderPartialAsync("_ValidationScriptsPartial"); }
+}

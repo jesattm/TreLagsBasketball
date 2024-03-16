@@ -1,0 +1,38 @@
+﻿@model TeamDetail
+
+<h1>Create team</h1>
+
+@using (@Html.BeginForm("Create", "TeamDetail", FormMethod.Post))
+{
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+    <div>
+        @Html.LabelFor(t => t.TeamName)
+        @Html.EditorFor(t => t.TeamName)
+        @Html.ValidationMessageFor(t => t.TeamName, "", new { @class = "text-danger" })
+    </div>
+    <br />
+    <input type="submit" value="Submit team" />
+}
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}
+
+@if (@Model != null)
+{
+    <br />
+    <h2>
+        The following team was created:
+    </h2>
+    <div>
+        <b>Team ID: </b>
+        @(Model.TeamId)
+        <br />
+        <b>Team name: </b>
+        @(Model.TeamName)
+        <br />
+    </div>
+}

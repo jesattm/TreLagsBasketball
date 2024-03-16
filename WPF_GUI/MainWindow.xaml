@@ -1,0 +1,49 @@
+﻿<Window
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WPF_GUI"
+        xmlns:Model="clr-namespace:DTO.Model;assembly=DTO" x:Class="WPF_GUI.MainWindow"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="864">
+    <Grid x:Name="grid">
+        <ListBox x:Name="listBox_AllPlayers" HorizontalAlignment="Left" Height="139" Margin="10,36,0,0" VerticalAlignment="Top" Width="323"/>
+        <Label Content="All players" HorizontalAlignment="Left" Height="26" Margin="10,10,0,0" VerticalAlignment="Top" Width="70"/>
+        <Button x:Name="btn_showPlayers" Content="Show all players" HorizontalAlignment="Left" Height="21" Margin="96,12,0,0" VerticalAlignment="Top" Width="92" Click="btn_showPlayers_Click"/>
+        <Button x:Name="btn_createPlayer" Content="Create Player" HorizontalAlignment="Left" Height="22" Margin="391,33,0,0" VerticalAlignment="Top" Width="87" Click="btn_createPlayer_Click"/>
+        <Label Content="Name:" HorizontalAlignment="Left" Margin="355,60,0,0" VerticalAlignment="Top" Height="26" Width="44"/>
+        <TextBox x:Name="textBox_createName" HorizontalAlignment="Left" Margin="399,64,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="138" Height="18"/>
+        <StackPanel HorizontalAlignment="Left" Height="84" Margin="362,86,0,0" VerticalAlignment="Top" Width="157">
+            <RadioButton x:Name="radio_createPG" Content="Point Guard" GroupName="radio_position"/>
+            <RadioButton x:Name="radio_createSG" Content="Shooting Guard" GroupName="radio_position"/>
+            <RadioButton x:Name="radio_createSF" Content="Small Forward" GroupName="radio_position"/>
+            <RadioButton x:Name="radio_createPF" Content="Power Forward" GroupName="radio_position"/>
+            <RadioButton x:Name="radio_createC" Content="Center" GroupName="radio_position"/>
+        </StackPanel>
+        <Button x:Name="btn_FindPlayer" Content="Find player" HorizontalAlignment="Left" Margin="598,10,0,0" VerticalAlignment="Top" Height="21" Width="70" Click="btn_FindPlayer_Click"/>
+        <Label Content="Id:" HorizontalAlignment="Left" Margin="666,8,0,0" VerticalAlignment="Top" Height="26" Width="23"/>
+        <TextBox x:Name="textBox_FindById" HorizontalAlignment="Left" Margin="689,12,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="45" Height="18"/>
+        <StackPanel HorizontalAlignment="Left" Height="75" Margin="568,41,0,0" VerticalAlignment="Top" Width="59">
+            <Label Content="Id:" HorizontalAlignment="Right" />
+            <Label Content="Name:" HorizontalAlignment="Right"/>
+            <Label Content="Position:" HorizontalAlignment="Right"/>
+        </StackPanel>
+        <TextBlock x:Name="textBlock_ShowId" HorizontalAlignment="Left" Margin="640,47,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Height="16"/>
+        <TextBox x:Name="textBox_ShowName" HorizontalAlignment="Left" Margin="640,70,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="177" Height="18"/>
+        <ComboBox x:Name="comboBox_ShowPosition" HorizontalAlignment="Left" Margin="640,94,0,0" VerticalAlignment="Top" Width="120" Height="22"/>
+        <Button x:Name="btn_editPlayer" Content="Edit player above" HorizontalAlignment="Left" Margin="604,124,0,0" VerticalAlignment="Top" Click="btn_editPlayer_Click" Height="23" Width="99"/>
+        <Button x:Name="btn_DeletePlayer" Content="Delete player above" HorizontalAlignment="Left" Margin="718,124,0,0" VerticalAlignment="Top" Height="23" Width="114" Click="btn_DeletePlayer_Click"/>
+        <Button x:Name="btn_createTeam" Content="Create team" HorizontalAlignment="Left" Margin="12,0,0,0" VerticalAlignment="Center" Click="btn_createTeam_Click"/>
+        <TextBox x:Name="textBox_TeamName" HorizontalAlignment="Left" Margin="82,232,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <Label Content="Team name:" HorizontalAlignment="Left" Margin="8,228,0,0" VerticalAlignment="Top"/>
+        <ListBox x:Name="listBox_Teams" HorizontalAlignment="Left" Height="136" Margin="307,226,0,0" VerticalAlignment="Top" Width="171" d:ItemsSource="{Binding}" IsSynchronizedWithCurrentItem="True" SelectionChanged="listBox_Teams_SelectionChanged">
+
+        </ListBox>
+        <ListBox x:Name="listBox_PlayersOnTeam" HorizontalAlignment="Left" Height="138" Margin="496,226,0,0" VerticalAlignment="Top" Width="345"/>
+        <Label Content="Teams" HorizontalAlignment="Left" Margin="371,201,0,0" VerticalAlignment="Top" RenderTransformOrigin="1.433,0.248"/>
+        <Label Content="Players on selected team" HorizontalAlignment="Left" Margin="529,201,0,0" VerticalAlignment="Top"/>
+        <Button x:Name="btn_AddPlayerToTeam" Content="Add player to team" HorizontalAlignment="Left" Height="24" Margin="654,158,0,0" VerticalAlignment="Top" Width="121" Click="btn_AddPlayerToTeam_Click"/>
+        <Button x:Name="btn_DeteteTeam" Content="Delete team" HorizontalAlignment="Left" Height="21" Margin="358,367,0,0" VerticalAlignment="Top" Width="76" Click="btn_DeteteTeam_Click"/>
+    </Grid>
+</Window>

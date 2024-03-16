@@ -1,0 +1,53 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<meta charset="UTF-8">
+<title>Home view</title>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<link rel="stylesheet" href="">
+<style>
+</style>
+<script src=""></script>
+<body>
+    <h1>Home</h1>
+    <p>
+        <b>Player actions:</b>
+        <ul>
+            <li>
+                <a href="@Url.Action("Index", "Player")">
+                    Find basketball player
+                </a>
+        
+            </li>
+            <li>
+                <a href="@Url.Action("Create", "Player")">
+                    Create new basketball player
+                </a>
+            </li>
+        </ul>
+        <br />
+        <b>Team actions:</b>
+        <ul>
+            <li>
+                <a href="@Url.Action("Index", "Team")">
+                    Find basketball team
+                </a>
+            </li>
+            <li>
+                <a href="@Url.Action("Create", "Team")">
+                    Create basketball team
+                </a>
+            </li>
+            <li>
+                <a href="@Url.Action("AddPlayerToTeam", "Team")">
+                    Add a player to a team
+                </a>
+            </li>
+        </ul>
+    </p>
+
+</body>
+</html> 

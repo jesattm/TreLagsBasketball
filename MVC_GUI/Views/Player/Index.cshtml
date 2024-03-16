@@ -1,0 +1,66 @@
+﻿
+@{
+    ViewData["Title"] = "Index";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<meta charset="UTF-8">
+<title>Player view</title>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<link rel="stylesheet" href="">
+<style>
+</style>
+<body>
+    <h1>Player view</h1>
+    <h2>Find player by id</h2>
+    <p>
+        Som default 
+        @using (Html.BeginForm("Index", "Player", FormMethod.Post))
+        {
+                        <p>
+                @Html.Label("PlayerId") <br />
+                @Html.TextBox("PlayerId")
+                        </p>
+                        <p>
+                                <input type="submit" value="Find player">
+                        </p>
+        }
+    </p>
+    <h2>Result</h2>
+    <p>
+        @*<div id="Id_Div">
+             <b>Id:</b> @{
+                if (Model != null)
+                {
+                    @Model.PlayerId
+                }
+            }
+        </div>
+        <div>
+            <b>Name:</b> @{
+                if (Model != null)
+                {
+                    @Model.Name
+                }
+            }
+        </div>
+        <div>
+            <b>Position:</b> @{
+                if (Model != null)
+                {
+                    @Model.Position
+                }
+            }
+        </div>*@
+
+        <div>
+            @*@await Html.PartialAsync("_ShowPlayer")*@
+            @if (Model != null){
+            @await Component.InvokeAsync("ShowPlayer", @Model)
+            }
+        </div>
+    </p>
+
+</body>
+</html>  
